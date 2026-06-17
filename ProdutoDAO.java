@@ -6,7 +6,7 @@ public class ProdutoDAO {
 
 	public Connection conectar() throws SQLException {
 
-		return DriverManager.getConnection("jdbc:mysql://localhost:3306/Produto", "root", "myca@12345!");
+		return DriverManager.getConnection("jdbc:mysql://localhost:3306/Produto", "", "");
 	}
 
 	public void inserirProduto(Produto p1) {
@@ -20,6 +20,8 @@ public class ProdutoDAO {
 			cmd.setString(1, p1.getNome());
 			cmd.setDouble(2, p1.getPreco());
 			cmd.executeUpdate();
+
+			System.out.println("Produto inserido com sucesso!");
 
 			cmd.close();
 			conn.close();
@@ -39,6 +41,8 @@ public class ProdutoDAO {
 
 			cmd2.setString(1, p2.getNome());
 			cmd2.setInt(2, p2.getId());
+
+			System.out.println("Produto atualizado com sucesso!");
 
 			cmd2.executeUpdate();
 			cmd2.close();
@@ -86,6 +90,8 @@ public class ProdutoDAO {
 
 			cmd4.setInt(1, p4.getId());
 			cmd4.executeUpdate();
+
+			System.out.println("Produto deletado com sucessor!");
 
 			cmd4.close();
 			conn.close();

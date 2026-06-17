@@ -10,44 +10,52 @@ public class TesteProduto {
 		TesteProduto sistema = new TesteProduto();
 
 		Scanner sc = new Scanner(System.in);
+		int opcao;
 		System.out.println("---Abrindo a loja---");
 
-		System.out.println("===Escolha a opção====");
-		System.out.println("[1] Inserir.");
-		System.out.println("[2] Atualizar.");
-		System.out.println("[3] Consultar.");
-		System.out.println("[4] Deletar.");
-		int opcao = sc.nextInt();
+		do {
+			System.out.println("===Escolha a opção====");
+			System.out.println("[1] Inserir.");
+			System.out.println("[2] Atualizar.");
+			System.out.println("[3] Consultar.");
+			System.out.println("[4] Deletar.");
+			System.out.println("[0] Para sair.");
+			opcao = sc.nextInt();
 
-		sc.nextLine();
+			sc.nextLine();
 
-		if (opcao == 1) {
-			System.out.println("Digite o nome: ");
-			String nome = sc.nextLine();
+			if (opcao == 1) {
+				System.out.println("Digite o nome: ");
+				String nome = sc.nextLine();
 
-			System.out.println("Digite o preço: ");
-			double preco = sc.nextDouble();
+				System.out.println("Digite o preço: ");
+				double preco = sc.nextDouble();
 
-			sistema.inserirProduto(nome, preco);
+				sc.nextLine();
 
-		} else if (opcao == 2) {
-			System.out.println("Digite o nome: ");
-			String nome = sc.nextLine();
+				sistema.inserirProduto(nome, preco);
 
-			System.out.println("Digite o id do produto: ");
-			int id = sc.nextInt();
+			} else if (opcao == 2) {
+				System.out.println("Digite o novo nome: ");
+				String nome = sc.nextLine();
 
-			sistema.atualizarProduto(nome, id);
-		} else if (opcao == 3) {
-			sistema.consultarProdutos();
-		} else if (opcao == 4) {
-			System.out.println("Digite o id do produto para deletar: ");
-			int id = sc.nextInt();
+				System.out.println("Digite o id do produto: ");
+				int id = sc.nextInt();
 
-			sistema.deletarProduto(id);
-		} else {
-			System.out.println("Opção Inválida.");
-		}
+				sistema.atualizarProduto(nome, id);
+			} else if (opcao == 3) {
+				sistema.consultarProdutos();
+			} else if (opcao == 4) {
+				System.out.println("Digite o id do produto para deletar: ");
+				int id = sc.nextInt();
+
+				sistema.deletarProduto(id);
+			} else if (opcao == 0) {
+				System.out.println("--Fim das Compras.--");
+			} else {
+				System.out.println("Opção Inválida.");
+			}
+		} while (opcao != 0);
 	}
 
 	public void inserirProduto(String nome, double preco) {

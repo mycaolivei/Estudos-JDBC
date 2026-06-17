@@ -15,7 +15,11 @@ public class Produto {
 		this.setNome(nome);
 		this.setPreco(preco);
 	}
-	public Produto(int id) {
+	public Produto(String nome,int id) {
+		this.setNome(nome);
+		this.setId(id);
+	}
+	public Produto (int id) {
 		this.setId(id);
 	}
 	
